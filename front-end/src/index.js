@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import './assets/styles/custom.scss';
+import AppRoutes from './Routes';
+import { Provider } from 'react-redux';
+import ExecutableStore  from './store';
+
+const { store } = ExecutableStore();
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <AppRoutes />
+  </Provider>,
   document.getElementById('root')
 );

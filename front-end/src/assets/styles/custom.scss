@@ -1,27 +1,67 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.homepage-container {
+  .filters {
+    display: flex;
+    width: 100%;
+    ul {
+      padding: 4px 0;
+      margin: 12px 15px;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-justify-content: center;
+      justify-content: space-around;
+      -webkit-align-items: center;
+      align-items: center;
+      background: #eaeaec;
+      border-radius: 2px;
+      border: 1px solid #4b4b4d;
+      width: 100%;
+      li {
+        text-transform: uppercase;
+        color: #4b4b4d;
+        cursor: pointer;
+        -webkit-flex: 1 1;
+        flex: 1 1;
+        text-align: center;
+        margin-right: 0;
+        border-right: 2px solid #4b4b4d;
+        list-style: none;
+        &:last-child{
+          border-right: 0px;
+        }
+        &.active{
+          color: #ed3237;
+        }
+        .fas{
+          margin-left: 10px;
+        }
+      }
+    }
   }
-.demo{
-  margin: 15px 0px;
-  border: 1px solid #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-  -webkit-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  cursor: pointer;
-}
-.overlay{
-  padding: 20px 0px;
-  width: 100%;
-  text-align: center;
-}
-.overlay:hover{
-  background-color: #4dabf7;
+  .card-design {
+    margin: 15px 0px;
+    border: 1px solid #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    -webkit-transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    cursor: pointer;
+    .overlay {
+      padding: 20px 0px;
+      width: 100%;
+      text-align: center;
+      &:hover {
+        background-color: #4dabf7;
+      }
+    }
+  }
 }
