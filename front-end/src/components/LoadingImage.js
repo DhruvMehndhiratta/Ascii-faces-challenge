@@ -1,7 +1,7 @@
 //File Name: LoadingImage.js
 //Path: src/components/common
 //Description: this component is used to show Loading image when image of card is not fully loaded on screen 
-import React, { Fragment } from 'react';
+import React from 'react';
 
 export default class LoadingImage extends React.Component {
     
@@ -28,10 +28,11 @@ export default class LoadingImage extends React.Component {
                 <img
                     src={src}
                     onLoad={this.imageLoaded}
+                    alt='product item'
                 />
                 {loading ? <img
                     src={require('../assets/images/loader.gif')}
-                   
+                    alt='loading item'
                 /> : null}
             </div>
         )
