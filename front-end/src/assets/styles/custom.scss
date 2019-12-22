@@ -55,6 +55,7 @@ body {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     cursor: pointer;
+    min-height: 120px;
     .overlay {
       padding: 20px 0px;
       width: 100%;

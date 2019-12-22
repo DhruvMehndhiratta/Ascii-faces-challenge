@@ -3,7 +3,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 import loader from '../assets/images/loader.gif';
 import { connect } from 'react-redux';
 import actions from '../actions';
-import { Filters } from '../components';
+import { Filters, LoadingImage } from '../components';
 
 
 class Homepage extends Component {
@@ -14,7 +14,7 @@ class Homepage extends Component {
       apiData: {
         page: 1,
         limit: 100,
-        sort:""
+        sort: ""
       }
     }
   }
@@ -32,7 +32,7 @@ class Homepage extends Component {
     const { apiData } = this.state;
     const { page, limit } = apiData;
     const { products = [] } = this.props.products;
-    if (products.length < 500) {
+    if (products.length < 525) {
       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
         this.setState({
           apiData: {
@@ -46,19 +46,23 @@ class Homepage extends Component {
   }
 
   handleSorting = key => {
-    const { apiData } =this.state;
+    const { apiData } = this.state;
     const updatedData = {
       ...apiData,
-      page:1,
-      limit:100,
-      sort:key
+      page: 1,
+      limit: 100,
+      sort: key
     }
     this.props.dispatch(actions.emptyProducts())
-    
-    
+
+
     this.setState({
-      apiData:updatedData
-    },() => this.props.dispatch(actions.getProducts(updatedData)))
+      apiData: updatedData
+    }, () => this.props.dispatch(actions.getProducts(updatedData)))
+  }
+
+  handleLoad = () => {
+    console.log("handle load")
   }
 
   render() {
@@ -67,7 +71,7 @@ class Homepage extends Component {
     return (
       <Container className='homepage-container'>
         <Row className='m-0'>
-          <div className='filters'> 
+          <div className='filters'>
             <Filters
               handleSorting={this.handleSorting}
               sortOption={apiData && apiData.sort || ""}
@@ -75,19 +79,26 @@ class Homepage extends Component {
           </div>
           {
             products && products.length ? products.map((item, i) => {
-              return <Col sm={4} md={3} lg={2} xs={6} key={i}>
-                <div className='card-design'>
-                  <div className='overlay' style={{ fontSize: `${item.size} px` }}>{item.face}</div>
-                  <h6 className='text-center  my-2'>{`$${item.price}`}</h6>
-                </div>
-              </Col>
-            }) : null
+                return (
+                  <React.Fragment key={i}>
+                    {item.src ? <Col sm='12' md='12' className='text-center'>
+                      {/* <img src={item.src} onLoad={this.handleLoad} /> */}
+                      <LoadingImage  src={item.src} />
+                    </Col> : <Col sm={3} xs={6} key={i}>
+                      <div className='card-design'>
+                        <div className='overlay' style={{ fontSize: `${item.size} px` }}>{item.face}</div>
+                        <h6 className='text-center  my-2'>{`$${item.price}`}</h6>
+                      </div>
+                    </Col>}
+                  </React.Fragment>
+                )
+                }) : null
           }
           {
             fetching ? <React.Fragment>
               {
                 [...Array(100)].map((item, i) => {
-                  return <Col sm={4} md={3} lg={2} xs={6} key={i}>
+                  return <Col sm={3} xs={6} key={i}>
                     <div className='card-design border-0'>
                       <img style={{ height: "50px", width: "50px" }} src={loader} alt='loading image' />
                     </div>
