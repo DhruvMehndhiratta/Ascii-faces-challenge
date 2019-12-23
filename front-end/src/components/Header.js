@@ -9,7 +9,7 @@ import {
 const Header = () => {
     return (
         <div className='header'>
-            <Navbar bg="dark" variant="dark" className='header-navbar'>
+            <Navbar bg="light" variant="light" className='header-navbar' expand='lg'>
                 <Navbar.Brand href="#home">
                     <img
                         alt=""
