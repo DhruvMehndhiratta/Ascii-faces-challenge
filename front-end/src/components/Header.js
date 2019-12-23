@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
     Navbar,
     Nav,
-    NavDropdown,
-    Form,
-    Button,
     FormControl,
-    FormGroup,
     InputGroup
 } from 'react-bootstrap';
 
