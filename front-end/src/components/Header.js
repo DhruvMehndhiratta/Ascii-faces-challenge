@@ -5,6 +5,7 @@ import {
     FormControl,
     InputGroup
 } from 'react-bootstrap';
+import logo from '../assets/images/logo.png'
 
 const Header = () => {
     return (
@@ -13,7 +14,7 @@ const Header = () => {
                 <Navbar.Brand href="#home">
                     <img
                         alt=""
-                        src="http://asciimoji.com/images/header.png"
+                        src={logo}
                         className="logo"
                     />{' '}
                 </Navbar.Brand>
@@ -26,7 +27,7 @@ const Header = () => {
 
                         />
                         <InputGroup.Append>
-                        <i class="fal fa-search"></i>
+                        <i className="fal fa-search"></i>
                         </InputGroup.Append>
                     </InputGroup>
                     <Nav>
@@ -38,7 +39,7 @@ const Header = () => {
                         <Nav.Link href="#blog">Blog</Nav.Link>
                     </Nav>
 
-                    <a className='signin' href="#signin">Sign in <i class="fal fa-sign-in-alt"></i></a>
+                    <a className='signin' href="#signin">Sign in <i className="fal fa-sign-in-alt"></i></a>
 
                 </Navbar.Collapse>
             </Navbar>
