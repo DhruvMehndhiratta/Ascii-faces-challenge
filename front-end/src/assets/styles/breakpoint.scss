@@ -1,0 +1,17 @@
+@media (max-width: 991px) {
+  .homepage {
+    .header {
+      .input-group {
+        width: 100%;
+      }
+      .navbar-nav {
+        a {
+          margin: 5px 0px;
+        }
+        .signin {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

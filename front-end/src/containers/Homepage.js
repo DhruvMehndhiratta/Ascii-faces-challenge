@@ -112,7 +112,7 @@ class Homepage extends Component {
                     {item.src ? <Col sm='12' md='12' className='text-center'>
                       {/* <img src={item.src} onLoad={this.handleLoad} /> */}
                       <LoadingImage src={item.src} />
-                    </Col> : <Col sm={4} md={4} xs={6} lg={3} key={i}>
+                    </Col> : <Col sm={6} md={4} xs={6} lg={3} key={i}>
                         <div className='card-design'>
                           <div className='overlay' style={{ fontSize: `${item.size} px` }}>{item.face}</div>
                           <div className='card-details'>
@@ -136,7 +136,7 @@ class Homepage extends Component {
               fetching ? <React.Fragment>
                 {
                   [...Array(100)].map((item, i) => {
-                    return <Col sm={4} md={4} xs={6} lg={3} key={i}>
+                    return <Col sm={6} md={4} xs={6} lg={3} key={i}>
                       <div className='card-design border-0'>
                         <img style={{ height: "50px", width: "50px" }} src={loader} alt='loading item' />
                       </div>

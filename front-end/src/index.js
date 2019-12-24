@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/styles/custom.scss';
+import './assets/styles/breakpoint.scss'
 import AppRoutes from './Routes';
 import { Provider } from 'react-redux';
 import ExecutableStore  from './store';
